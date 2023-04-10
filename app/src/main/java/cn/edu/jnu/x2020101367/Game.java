@@ -36,6 +36,4 @@ public class Game {
         return rolls[frameIndex] +
                 rolls[frameIndex + 1] == 10;
     }
-
-
 }

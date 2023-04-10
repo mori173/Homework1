@@ -32,4 +32,14 @@ public class BowlingGameUnitTest {
         game1.roll(5);
         assertEquals(9, game1.score());
     }
+
+    @Test
+    //测试spare，计算下一次投掷的得分
+    public void testSpare() {
+        Game game = new Game();
+        game.roll(4);
+        game.roll(6);
+        game.roll(3);
+        assertEquals(16, game.score());
+    }
 }

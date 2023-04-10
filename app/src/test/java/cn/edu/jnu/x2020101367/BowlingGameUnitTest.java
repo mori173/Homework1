@@ -52,5 +52,15 @@ public class BowlingGameUnitTest {
         game.roll(5);
         assertEquals(28, game.score());
     }
+
+    @Test
+    //测试十轮全中，包括额外的一轮
+    public void testPerfectGame() {
+        Game game = new Game();
+        for (int i = 0; i < 12; i++) {
+            game.roll(10);
+        }
+        assertEquals(300, game.score());
+    }
 }
 

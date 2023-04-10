@@ -17,6 +17,9 @@ import cn.edu.jnu.x2020101367.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,22 +28,30 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         setSupportActionBar(binding.toolbar);
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
+        Button buttoncalculate= this.findViewById(R.id.button_calculate);
+        EditText editTextScores= this.findViewById(R.id.edittext_frame_scores);
+        TextView textViewScore= this.findViewById(R.id.textview_score);
+        buttoncalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                String scores= editTextScores.getText().toString();
+                String []arrayScore= scores.split(",");
+                Game game=new Game();
+                for(int i=0;i<arrayScore.length;i++){
+                    game.roll(Integer.parseInt(arrayScore[i]));
+                }
+                textViewScore.setText("Total Score is:"+game.score());
             }
         });
     }

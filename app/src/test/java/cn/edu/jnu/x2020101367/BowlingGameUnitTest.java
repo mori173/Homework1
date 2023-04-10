@@ -18,5 +18,12 @@ public class BowlingGameUnitTest {
         assertEquals(0, game.score());
     }
 
-
+    @Test
+    //测试roll方法，投掷两次，计分相加
+    public void testRollTwice() {
+        Game game = new Game();
+        game.roll(4);
+        game.roll(5);
+        assertEquals(9, game.score());
+    }
 }

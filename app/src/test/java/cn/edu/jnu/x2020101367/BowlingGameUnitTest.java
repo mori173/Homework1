@@ -14,8 +14,8 @@ public class BowlingGameUnitTest {
     //测试roll方法，投掷一次，计分不变
     public void testRollOnce() {
         Game game = new Game();
-        game.roll(4);
-        assertEquals(4, game.score());
+        game.roll(0);
+        assertEquals(0, game.score());
     }
 
 

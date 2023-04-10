@@ -1,7 +1,7 @@
 package cn.edu.jnu.x2020101367;
 
 import org.junit.Test;
-
+import junit.framework.TestCase;
 import static org.junit.Assert.*;
 
 /**
@@ -9,9 +9,14 @@ import static org.junit.Assert.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-public class ExampleUnitTest {
+public class BowlingGameUnitTest {
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+    //测试roll方法，投掷一次，计分不变
+    public void testRollOnce() {
+        Game game = new Game();
+        game.roll(4);
+        assertEquals(4, game.score());
     }
+
+
 }

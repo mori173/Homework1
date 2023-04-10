@@ -42,4 +42,15 @@ public class BowlingGameUnitTest {
         game.roll(3);
         assertEquals(16, game.score());
     }
+
+    @Test
+    //测试strike，计算下两次投掷的得分
+    public void testStrike() {
+        Game game = new Game();
+        game.roll(10);
+        game.roll(4);
+        game.roll(5);
+        assertEquals(28, game.score());
+    }
 }
+
